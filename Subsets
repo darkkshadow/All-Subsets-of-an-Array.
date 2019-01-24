@@ -1,0 +1,22 @@
+class Subsets {
+  
+  public static void main(String[] args) throws IOException {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Give an array..");
+        String s[]=br.readLine().split(" ");
+        int l=s.length;
+        int a[]=new int[l];
+        StringBuffer sb=new StringBuffer();
+        for(int i=0;i<l;i++)a[i]=Integer.parseInt(s[i]);
+        for(int i=0;i<(1<<l);i++){
+            sb.append("{ ");
+            for(int j=0;j<l;j++){
+                if((i & (1<<j))>0)sb.append(a[j]+" ");
+            }
+            sb.append("}");
+            System.out.println(sb.toString());
+            sb.delete(0,sb.length());
+        }
+    }
+    
+}

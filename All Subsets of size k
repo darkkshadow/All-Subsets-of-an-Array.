@@ -1,0 +1,35 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+	static void allKSubsets(int a[],boolean used[],int index,int count,int k){
+		if(count==k){
+			for(int i=0;i<a.length;i++){
+				if(used[i])System.out.print(a[i]+" ");
+			}
+			System.out.println();
+			return;
+		}
+		if(index==a.length){
+			return;
+		}
+		used[index]=true;
+		allKSubsets(a,used,index+1,count+1,k);
+		
+		used[index]=false;
+		allKSubsets(a,used,index+1,count,k);
+	}
+	
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		int a[]={1,2,3,4,5,6};
+		boolean b[]=new boolean[a.length];
+		allKSubsets(a,b,0,0,3);
+		// your code goes here
+	}
+}
